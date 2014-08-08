@@ -1,0 +1,1 @@
+JARs were copied from Mondrian Schema Workbench 3.7.0
