@@ -20,6 +20,13 @@ esac
 # Setup ClassPath for libraries & drivers
 export MonClassPath="./lib/*${JFSeparator}./drivers/*"
 
+# Error routine
+error() {
+    echo "Error: $1"
+    echo
+    usage
+}
+
 # Setup database specific variables.
 configureDB()	{
 	export DBOptions="-verbose -aggregates -tables -data -indexes"
