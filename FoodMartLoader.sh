@@ -18,13 +18,12 @@ case $(uname) in
 esac
 
 # Setup ClassPath for libraries & drivers
-export MonClassPath="./lib/*${JFSeparator}./drivers/*"
+export MonClassPath="./libs/*${JFSeparator}./drivers/*"
 
 # Error routine
 error() {
     echo "Error: $1"
     echo
-    usage
 }
 
 # Setup database specific variables.
@@ -37,20 +36,20 @@ configureDB()	{
 		(mysql)
 			export JDriver="-jdbcDrivers=com.mysql.jdbc.Driver"
 			export JURL="-outputJdbcURL=jdbc:mysql://localhost/foodmart"
-			break;;
+			;;
 		(postgres)
 			export JDriver="-jdbcDrivers=org.postgresql.Driver"
 			export JURL="-outputJdbcURL=jdbc:postgresql://localhost/foodmart"
-			break;;
+			;;
 		(sqlserver)
 			export JDriver="-jdbcDrivers=net.sourceforge.jtds.jdbc.Driver"
 			export JURL="-outputJdbcURL=jdbc:jtds:sqlserver://localhost/foodmart"
-			break;;
+			;;
 		(sybase)
 			export JDriver="-jdbcDrivers=net.sourceforge.jtds.jdbc.Driver"
 			export JURL="-outputJdbcURL=jdbc:jtds:sybase://localhost/foodmart"
-			break;;
-		(*) error "Unknown database '$db'."; exit 1;;
+			;;
+		(*) error "Unknown database selection."; exit 1;;
 	esac
 }
 
@@ -67,12 +66,12 @@ done
 # Load the database.
 loadData()	{
 	configureDB
-	java -cp ${MonClassPath} \
+	java -cp "${MonClassPath}" \
 	mondrian.test.loader.MondrianFoodMartLoader \
 	-inputFile=./data/FoodMartCreateData.sql \
 	${DBOptions} ${JDriver} ${JURL} ${DBCredentials}
 }
 
-cd $(dirname $0)/..
+cd $(dirname $0)
 loadData
 exit 0
