@@ -66,5 +66,6 @@ loadData()	{
 	${DBOptions} ${JDriver} ${JURL} ${DBCredentials}
 }
 
-
-
+cd $(dirname $0)/..
+loadData
+exit 0
