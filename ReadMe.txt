@@ -1,7 +1,7 @@
+A wrapper to the Mondrian FoodMart Data Loader
 
 INTRO
-
-FoodMart Data Loader.
+-----------------------------
 
 This is a small wrapper to the Mondrian FoodMart Data Loader, the JAR files were taken 
 It takes the FoodMart SQL Creation script and loads the data onto the database of your choice.
@@ -15,8 +15,18 @@ Drivers that are included on this version are:
 - SQL Server & Sybase
 
 
-Usage instructions:
-  
-  1.) Unzip the file DataScript.zip found in the 'data' directory.
-  2.) Run the script as follows:
-    sh FoodMartLoader.sh --help
+Pre-requistes:
+------------------------------
+- Make sure you have a Java 7 or later in your PATH.
+- Unzip the content of data/DataScript.zip found into the 'data' directory.
+- Choose one of the following db_types:
+    + mysql
+    + postgres
+    + sqlserver
+    + sybase
+
+Usage Instructions
+------------------------------
+Run the script as follows:
+
+	sh FoodMartLoader.sh --db <db_type>
