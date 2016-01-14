@@ -10,7 +10,7 @@ The script is easily editable to add additional database options.
 As is the script assumes that all database servers are running on the local machine, this can be edited before running the wrapper script.
 
 Drivers that are included on this version are:
-- ProstgreSQL
+- PostgreSQL
 - MySQL
 - SQL Server & Sybase
 
